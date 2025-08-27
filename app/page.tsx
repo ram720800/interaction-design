@@ -11,8 +11,8 @@ const page = () => {
           height={128}
           className="rounded-md"
         />
-        <div className="text-6xl font-main">Interaction Design Challenge</div>
-        <p className="text-md font-main">@ram720800</p>
+        <div className="text-2xl sm:text-6xl font-main">Interaction Design Challenge</div>
+        <p className="text-sm sm:text-md font-main">@ram720800</p>
       </div>
     </div>
   );

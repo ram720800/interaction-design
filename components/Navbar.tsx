@@ -52,7 +52,7 @@ const Navbar = () => {
         height={32} 
         className="rounded-full"
       />
-      <div className="flex items-center sm:justify-center gap-4 sm:gap-10 overflow-x-auto mx-4">
+      <div className="flex items-center sm:justify-center gap-4 sm:gap-10 overflow-x-auto mx-4 py-2">
         {routes.map((route) => {
           return (
             <a

@@ -23,12 +23,12 @@ const page = () => {
         <span className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-px w-3/4 mx-auto"></span>
         <span className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-px w-3/4 mx-auto"></span>
         <span className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[5px] w-full mx-auto blur-md"></span>
-        {/* <motion.div
+        <motion.div
           className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl"
           style={{
-            background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px,rgba(151, 183, 204, 0.15),transparent 80%)`,
+            background: useMotionTemplate`radial-gradient(100px circle at ${mouseX}px ${mouseY}px,rgba(28, 115, 160, 0.15),transparent 80%)`,
           }}
-        /> */}
+        />
         <InputOTPPatternExample />
         <span className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-success to-transparent h-px w-3/4 mx-24"></span>
         <span className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-success to-transparent h-[8px] w-full mx-24 blur-md"></span>

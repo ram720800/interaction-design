@@ -17,7 +17,7 @@ const routes: UrlRoute[] = [
     title: "Day 01",
   },
   {
-    path: "/2",
+    path: "/interactive-otp-input",
     title: "Day 02",
   },
   {

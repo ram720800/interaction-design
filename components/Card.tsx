@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import { F1 } from "@/components/F1";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Transition } from "framer-motion";
 import { useState } from "react";
 
-const MotionImage = motion(Image);
 const MotionF1 = motion(F1);
+
+const spring: Transition = {
+  type: "spring",
+  stiffness: 300,
+  damping: 30,
+};
 
 const Card = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +23,7 @@ const Card = () => {
           layoutId="card-main"
           onClick={() => setIsOpen(false)}
           className="relative w-full h-[600px] inset-0 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% mask-r-from-90% mask-l-from-90% font-f1 cursor-pointer"
+          transition={spring}
         >
           <motion.div
             layoutId="card-nav"
@@ -42,39 +48,48 @@ const Card = () => {
 
           <motion.span
             layoutId="card-gradient-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto"
+            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-blur-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[30px] w-full mx-auto blur-xl"
+            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto"
+            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-blur-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[20px] w-full mx-auto blur-xl"
+            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
           ></motion.span>
 
-          <MotionImage
+          <motion.div
             layoutId="card-poster"
-            src="/F1.png"
-            alt="poster"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
+            className="absolute inset-0 will-transform"
+            transition={spring}
+          >
+            <Image
+              src="/F1.png"
+              alt="poster"
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+          </motion.div>
 
-          <div className="absolute top-40 xl:top-10">
-            <MotionImage
-              layoutId="card-logo"
+          <motion.div
+            layoutId="card-logo"
+            className="absolute top-40 xl:top-10 will-transform"
+            transition={spring}
+          >
+            <Image
               src="/F1-25.png"
               alt="formula1"
               width={280}
               height={160}
               className="object-contain scale-160"
             />
+
             <motion.div
               initial={{
                 filter: "blur(10px)",
@@ -111,13 +126,14 @@ const Card = () => {
                 </motion.span>
               </p>
             </motion.div>
-          </div>
+          </motion.div>
           <motion.div
+            layoutId="card-brad"
             whileHover={{ scale: 1.05 }}
-            className="absolute -translate-x-40 sm:-translate-x-80 xl:-translate-x-110 translate-y-[150px] sm:translate-y-[-30px] bottom-0"
+            transition={spring}
+            className="absolute -translate-x-40 sm:-translate-x-80 xl:-translate-x-110 translate-y-[150px] sm:translate-y-[-30px] bottom-0 will-transform"
           >
-            <MotionImage
-              layoutId="card-brad"
+            <Image
               src="/brad-full.png"
               alt="brad"
               width={280}
@@ -126,11 +142,12 @@ const Card = () => {
             />
           </motion.div>
           <motion.div
+            layoutId="card-damson"
             whileHover={{ scale: 1.05 }}
-            className="absolute translate-x-40 sm:translate-x-80 xl:translate-x-110 translate-y-[120px] sm:translate-y-[-80px] bottom-0"
+            transition={spring}
+            className="absolute translate-x-40 sm:translate-x-80 xl:translate-x-110 translate-y-[120px] sm:translate-y-[-80px] bottom-0 will-transform"
           >
-            <MotionImage
-              layoutId="card-damson"
+            <Image
               src="/damson-full.png"
               alt="damson"
               width={280}
@@ -144,6 +161,7 @@ const Card = () => {
           layoutId="card-main"
           whileHover={{ scale: 1.02 }}
           onClick={() => setIsOpen(true)}
+          transition={spring}
           className="relative w-80 h-80 sm:w-96 sm:h-96 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% font-f1 cursor-pointer"
         >
           <motion.div
@@ -169,46 +187,55 @@ const Card = () => {
 
           <motion.span
             layoutId="card-gradient-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto"
+            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-blur-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[30px] w-full mx-auto blur-xl"
+            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto"
+            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto will-transform"
           ></motion.span>
           <motion.span
             layoutId="card-gradient-blur-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[20px] w-full mx-auto blur-xl"
+            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
           ></motion.span>
 
-          <MotionImage
+          <motion.div
             layoutId="card-poster"
-            src="/F1.png"
-            alt="poster"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
+            className="absolute inset-0 will-transform"
+            transition={spring}
+          >
+            <Image
+              src="/F1.png"
+              alt="poster"
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+          </motion.div>
 
-          <div className="absolute translate-y-[24px] bottom-0">
-            <MotionImage
-              layoutId="card-logo"
+          <motion.div
+            layoutId="card-logo"
+            className="absolute translate-y-[24px] bottom-0 will-transform"
+            transition={spring}
+          >
+            <Image
               src="/F1-25.png"
               alt="formula1"
               width={280}
               height={160}
               className="object-contain opacity-40"
             />
-          </div>
+          </motion.div>
           <motion.div
+            layoutId="card-brad"
             whileHover={{ scale: 1.05 }}
-            className="absolute translate-y-[60px] -translate-x-30 bottom-0"
+            className="absolute translate-y-[60px] -translate-x-30 bottom-0 will-transform"
+            transition={spring}
           >
-            <MotionImage
-              layoutId="card-brad"
+            <Image
               src="/brad-full.png"
               alt="brad"
               width={280}
@@ -217,11 +244,12 @@ const Card = () => {
             />
           </motion.div>
           <motion.div
+            layoutId="card-damson"
             whileHover={{ scale: 1.05 }}
-            className="absolute translate-y-[40px] translate-x-30 bottom-0"
+            className="absolute translate-y-[40px] translate-x-30 bottom-0 will-transform"
+            transition={spring}
           >
-            <MotionImage
-              layoutId="card-damson"
+            <Image
               src="/damson-full.png"
               alt="damson"
               width={280}

@@ -28,8 +28,8 @@
   --muted-blue: oklch(0.652 0.157 259.81 / 20%);
   --invalid: oklch(0.6578 0.194 25.06);
   --muted-invalid: oklch(0.6578 0.194 25.06 / 20%);
-  --success:oklch(0.599 0.2056 149.579);
-  --muted-success:oklch(0.599 0.2056 149.579 / 20%);
+  --success: oklch(0.599 0.2056 149.579);
+  --muted-success: oklch(0.599 0.2056 149.579 / 20%);
 }
 
 @theme inline {
@@ -63,7 +63,6 @@
   --color-muted-invalid: var(--muted-invalid);
   --color-success: var(--success);
   --color-muted-success: var(--muted-success);
-
 
   --animate-shine: shine 6s linear infinite;
   --animate-text-gradient: text-gradient 2s linear infinite;
@@ -99,6 +98,13 @@ body {
   }
   .app-shadow {
     @apply [box-shadow:1px_1px_4px_inset_rgba(100,100,100,0.15),0_-4px_10px_inset_rgba(0,0,0,0.01),1_-1px_0.9px_0px_inset_rgba(200,200,200,0.25),0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_inset_rgba(0,0,0,0.01)] z-[9998];
+  }
+  .will-transform {
+    @apply transform-gpu;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 

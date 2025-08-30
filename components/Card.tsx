@@ -22,7 +22,7 @@ const Card = () => {
         <motion.div
           layoutId="card-main"
           onClick={() => setIsOpen(false)}
-          className="relative w-full h-[600px] inset-0 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% mask-r-from-90% mask-l-from-90% font-f1 cursor-pointer"
+          className="relative w-full h-[600px] inset-0 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% mask-r-from-90% mask-l-from-90% font-f1 cursor-pointer -mt-20 z-50"
           transition={spring}
         >
           <motion.div

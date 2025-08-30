@@ -44,6 +44,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-main: var(--font-instrumental);
+  --font-f1: var(--font-orbitron);
   --color-main: var(--main);
   --color-main-secondary: var(--main-secondary);
   --color-main-foreground: var(--main-foreground);
@@ -97,7 +98,7 @@ body {
     @apply [box-shadow:0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_inset_rgba(0,0,0,0.01),1_-1px_9px_0px_inset_rgba(200,200,200,0.25)] [backdrop-filter:_blur(20px)_brightness(1)_saturate(1.05)];
   }
   .app-shadow {
-    @apply [box-shadow:1px_1px_4px_inset_rgba(100,100,100,0.15),0_-4px_10px_inset_rgba(0,0,0,0.01),1_-1px_0.9px_0px_inset_rgba(200,200,200,0.25)] z-[9998];
+    @apply [box-shadow:1px_1px_4px_inset_rgba(100,100,100,0.15),0_-4px_10px_inset_rgba(0,0,0,0.01),1_-1px_0.9px_0px_inset_rgba(200,200,200,0.25),0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_inset_rgba(0,0,0,0.01)] z-[9998];
   }
 }
 

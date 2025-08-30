@@ -1,11 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type UrlRoute = {
-    path: string;
-    title: string;
-}
+  path: string;
+  title: string;
+};
 
 const routes: UrlRoute[] = [
   {
@@ -21,7 +24,7 @@ const routes: UrlRoute[] = [
     title: "Day 02",
   },
   {
-    path: "/3",
+    path: "/card-transition",
     title: "Day 03",
   },
   {
@@ -43,25 +46,37 @@ const routes: UrlRoute[] = [
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="mx-2 sm:mx-4 flex justify-between items-center py-4 font-main">
       <Image
         src="/peerlist.png"
         alt="peerlist"
         width={32}
-        height={32} 
+        height={32}
         className="rounded-full"
       />
       <div className="flex items-center sm:justify-center gap-4 sm:gap-10 overflow-x-auto mx-4 py-2">
         {routes.map((route) => {
           return (
-            <a
-              key={route.path}
+            <Link
+              key={route.title}
               href={route.path}
-              className="whitespace-nowrap"
+              className={`${
+                pathname === route.path ? "" : "hover:text-foreground/50"
+              } relative rounded-full px-3 py-1.5 whitespace-nowrap`}
             >
-              {route.title}
-            </a>
+              {pathname === route.path && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 app-shadow"
+                  style={{ borderRadius: 9999 }}
+                >
+                </motion.div>
+              )}
+              <span className="relative z-20">{route.title}</span>
+            </Link>
           );
         })}
       </div>

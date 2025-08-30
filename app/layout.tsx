@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -8,6 +9,12 @@ const instrumental = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
 });
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: "400",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${instrumental.variable} antialiased`}
+        className={`${instrumental.variable} ${orbitron.variable} antialiased`}
       >
         <Navbar/>
         {children}

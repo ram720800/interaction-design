@@ -22,7 +22,7 @@ const Card = () => {
         <motion.div
           layoutId="card-main"
           onClick={() => setIsOpen(false)}
-          className="relative w-full h-[600px] inset-0 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% mask-r-from-90% mask-l-from-90% font-f1 cursor-pointer -mt-20 z-50"
+          className="relative w-full h-[600px] inset-0 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% mask-r-from-90% mask-l-from-90% font-f1 cursor-pointer -mt-10"
           transition={spring}
         >
           <motion.div
@@ -72,7 +72,7 @@ const Card = () => {
               src="/F1.png"
               alt="poster"
               fill
-              className="object-cover opacity-30"
+              className="object-cover opacity-60"
               priority
             />
           </motion.div>
@@ -157,123 +157,128 @@ const Card = () => {
           </motion.div>
         </motion.div>
       ) : (
-        <motion.div
-          layoutId="card-main"
-          whileHover={{ scale: 1.02 }}
-          onClick={() => setIsOpen(true)}
-          transition={spring}
-          className="relative w-80 h-80 sm:w-96 sm:h-96 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% font-f1 cursor-pointer"
-        >
+        <>
+          <div className="text-xl py-4 font-main">
+            Day 03: Card To Page Transition
+          </div>
           <motion.div
-            layoutId="card-nav"
-            className="absolute top-0 left-0 w-full px-4 flex justify-between items-center z-10"
+            layoutId="card-main"
+            whileHover={{ scale: 1.02 }}
+            onClick={() => setIsOpen(true)}
+            transition={spring}
+            className="relative w-80 h-80 sm:w-96 sm:h-96 p-6 bg-gray2 flex justify-center items-center rounded-3xl block-shadow overflow-hidden mask-radial-from-50% font-f1 cursor-pointer"
           >
-            <div className="flex items-center gap-2">
-              <MotionF1 layoutId="card-f1" />
+            <motion.div
+              layoutId="card-nav"
+              className="absolute top-0 left-0 w-full px-4 flex justify-between items-center z-10"
+            >
+              <div className="flex items-center gap-2">
+                <MotionF1 layoutId="card-f1" />
+                <motion.p
+                  layoutId="card-name"
+                  className="uppercase text-[10px] tracking-[0.2em]"
+                >
+                  The movie
+                </motion.p>
+              </div>
               <motion.p
-                layoutId="card-name"
-                className="uppercase text-[10px] tracking-[0.2em]"
+                layoutId="card-date"
+                className="text-[10px] tracking-[0.2em]"
               >
-                The movie
+                Coming-2025
+              </motion.p>
+            </motion.div>
+
+            <motion.span
+              layoutId="card-gradient-top"
+              className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto will-transform"
+            ></motion.span>
+            <motion.span
+              layoutId="card-gradient-blur-top"
+              className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
+            ></motion.span>
+            <motion.span
+              layoutId="card-gradient-bottom"
+              className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto will-transform"
+            ></motion.span>
+            <motion.span
+              layoutId="card-gradient-blur-bottom"
+              className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
+            ></motion.span>
+
+            <motion.div
+              layoutId="card-poster"
+              className="absolute inset-0 will-transform"
+              transition={spring}
+            >
+              <Image
+                src="/F1.png"
+                alt="poster"
+                fill
+                className="object-cover opacity-30"
+                priority
+              />
+            </motion.div>
+
+            <motion.div
+              layoutId="card-logo"
+              className="absolute translate-y-[24px] bottom-0 will-transform"
+              transition={spring}
+            >
+              <Image
+                src="/F1-25.png"
+                alt="formula1"
+                width={280}
+                height={160}
+                className="object-contain opacity-40"
+              />
+            </motion.div>
+            <motion.div
+              layoutId="card-brad"
+              whileHover={{ scale: 1.05 }}
+              className="absolute translate-y-[60px] -translate-x-30 bottom-0 will-transform"
+              transition={spring}
+            >
+              <Image
+                src="/brad-full.png"
+                alt="brad"
+                width={280}
+                height={160}
+                className="object-contain scale-90 opacity-80 mask-b-from-80%"
+              />
+            </motion.div>
+            <motion.div
+              layoutId="card-damson"
+              whileHover={{ scale: 1.05 }}
+              className="absolute translate-y-[40px] translate-x-30 bottom-0 will-transform"
+              transition={spring}
+            >
+              <Image
+                src="/damson-full.png"
+                alt="damson"
+                width={280}
+                height={160}
+                className="object-contain scale-80 opacity-80 mask-b-from-80%"
+              />
+            </motion.div>
+            <div className="absolute -translate-x-30 bottom-0 z-20">
+              <motion.p
+                layoutId="card-brad-name"
+                className="text-[#000000] tracking-[0.2em] text-[10px] font-bold"
+              >
+                Brad Pitt
               </motion.p>
             </div>
-            <motion.p
-              layoutId="card-date"
-              className="text-[10px] tracking-[0.2em]"
-            >
-              Coming-2025
-            </motion.p>
+            <div className="absolute translate-x-30 bottom-0 z-20">
+              <motion.p
+                layoutId="card-damson-name"
+                className="text-[#000000] tracking-[0.2em] text-[10px] font-bold"
+              >
+                Damson
+              </motion.p>
+            </div>
           </motion.div>
-
-          <motion.span
-            layoutId="card-gradient-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[2px] w-3/4 mx-auto will-transform"
-          ></motion.span>
-          <motion.span
-            layoutId="card-gradient-blur-top"
-            className="absolute inset-x-0 top-px bg-gradient-to-r from-transparent via-foreground to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
-          ></motion.span>
-          <motion.span
-            layoutId="card-gradient-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[2px] w-3/4 mx-auto will-transform"
-          ></motion.span>
-          <motion.span
-            layoutId="card-gradient-blur-bottom"
-            className="absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-[#ffd700] to-transparent h-[10px] sm:h-[30px] w-full mx-auto blur-sm sm:blur-xl will-transform"
-          ></motion.span>
-
-          <motion.div
-            layoutId="card-poster"
-            className="absolute inset-0 will-transform"
-            transition={spring}
-          >
-            <Image
-              src="/F1.png"
-              alt="poster"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-          </motion.div>
-
-          <motion.div
-            layoutId="card-logo"
-            className="absolute translate-y-[24px] bottom-0 will-transform"
-            transition={spring}
-          >
-            <Image
-              src="/F1-25.png"
-              alt="formula1"
-              width={280}
-              height={160}
-              className="object-contain opacity-40"
-            />
-          </motion.div>
-          <motion.div
-            layoutId="card-brad"
-            whileHover={{ scale: 1.05 }}
-            className="absolute translate-y-[60px] -translate-x-30 bottom-0 will-transform"
-            transition={spring}
-          >
-            <Image
-              src="/brad-full.png"
-              alt="brad"
-              width={280}
-              height={160}
-              className="object-contain scale-90 opacity-80 mask-b-from-80%"
-            />
-          </motion.div>
-          <motion.div
-            layoutId="card-damson"
-            whileHover={{ scale: 1.05 }}
-            className="absolute translate-y-[40px] translate-x-30 bottom-0 will-transform"
-            transition={spring}
-          >
-            <Image
-              src="/damson-full.png"
-              alt="damson"
-              width={280}
-              height={160}
-              className="object-contain scale-80 opacity-80 mask-b-from-80%"
-            />
-          </motion.div>
-          <div className="absolute -translate-x-30 bottom-0 z-20">
-            <motion.p
-              layoutId="card-brad-name"
-              className="text-[#000000] tracking-[0.2em] text-[10px] font-bold"
-            >
-              Brad Pitt
-            </motion.p>
-          </div>
-          <div className="absolute translate-x-30 bottom-0 z-20">
-            <motion.p
-              layoutId="card-damson-name"
-              className="text-[#000000] tracking-[0.2em] text-[10px] font-bold"
-            >
-              Damson
-            </motion.p>
-          </div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   );

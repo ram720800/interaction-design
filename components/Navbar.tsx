@@ -28,7 +28,7 @@ const routes: UrlRoute[] = [
     title: "Day 03",
   },
   {
-    path: "/4",
+    path: "/interactive-folder",
     title: "Day 04",
   },
   {

@@ -30,6 +30,8 @@
   --muted-invalid: oklch(0.6578 0.194 25.06 / 20%);
   --success: oklch(0.599 0.2056 149.579);
   --muted-success: oklch(0.599 0.2056 149.579 / 20%);
+
+  --folder: oklch(13.441% 0.00002 271.152);
 }
 
 @theme inline {
@@ -41,8 +43,7 @@
   --color-gray4: var(--gradient-color-4);
   --color-gray7: var(--gradient-color-7);
   --color-grad1: var(--gradient-color-5);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-geist:var(--font-geist);
   --font-main: var(--font-instrumental);
   --font-f1: var(--font-orbitron);
   --color-main: var(--main);
@@ -56,6 +57,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
   --color-primary-invert: var(--primary-invert);
+
+  --color-folder: var(--folder);
 
   --color-border: var(--border);
   --color-muted-blue: var(--muted-blue);
@@ -105,6 +108,9 @@ body {
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+  }
+  .file-shadow {
+    @apply shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5 ;
   }
 }
 
@@ -179,6 +185,7 @@ body {
 
 ::-webkit-scrollbar {
   height: 2px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {

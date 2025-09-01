@@ -36,7 +36,7 @@ const routes: UrlRoute[] = [
     title: "Day 05",
   },
   {
-    path: "/6",
+    path: "/wrap-overlay",
     title: "Day 06",
   },
   {

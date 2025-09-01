@@ -48,18 +48,13 @@ const WrapOverlay = () => {
   const [checkedItems, setCheckedItems] = useState(
     Array(checkItems.length).fill(false)
   );
-  const [shakingItem, setShakingItem] = useState(null);
+  
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const handleToggle = (index: any) => {
+  const handleToggle = (index: number) => {
     const updated = [...checkedItems];
     updated[index] = !updated[index];
     setCheckedItems(updated);
-
-    setShakingItem(index);
-    setTimeout(() => {
-      setShakingItem(null);
-    }, 500);
   };
 
   const handleDeleteConfirmed = () => {
@@ -70,13 +65,6 @@ const WrapOverlay = () => {
   };
 
   const numSelected = checkedItems.filter(Boolean).length;
-
-  const shakeAnimation = {
-    shake: {
-      x: [-1, 1, -0.5, 0.5, 0],
-      transition: { duration: 0.4 },
-    },
-  };
 
   const gradientStyle = {
     backgroundImage: `radial-gradient(circle at 12% 24%, #F5AA41, transparent 70%),
@@ -220,8 +208,6 @@ const WrapOverlay = () => {
               <div className="relative overflow-hidden">
                 <motion.span
                   className={cn(isChecked ? "text-gray4" : "text-foreground")}
-                  animate={shakingItem === index ? "shake" : ""}
-                  variants={shakeAnimation}
                 >
                   <div className="flex items-start justify-between gap-2">
                     <img

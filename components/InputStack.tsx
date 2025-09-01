@@ -18,7 +18,6 @@ const InputStack = () => {
     setCurrent(minimum);
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
     form.reset();
   };
 

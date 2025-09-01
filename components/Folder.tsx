@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, easeIn } from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 import Image from "next/image";
 
 const htmlContent = `<!DOCTYPE html>

@@ -32,7 +32,7 @@ const routes: UrlRoute[] = [
     title: "Day 04",
   },
   {
-    path: "/5",
+    path: "/progressive-input-stack",
     title: "Day 05",
   },
   {

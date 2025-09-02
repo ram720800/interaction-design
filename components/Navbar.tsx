@@ -40,7 +40,7 @@ const routes: UrlRoute[] = [
     title: "Day 06",
   },
   {
-    path: "/7",
+    path: "/autofill-ai",
     title: "Day 07",
   },
 ];

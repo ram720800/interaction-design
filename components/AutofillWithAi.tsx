@@ -27,8 +27,9 @@ import SkeletonAnimation from "./SkeletonAnimation";
 const formSchema = z.object({
   projectName: z.string().min(1, { message: "Project title is missing." }),
   projectURL: z.string().min(1, { message: "Project URL is required." }),
-  tagline:
-    z.string().min(1, { message: "Please add a meaningful tagline for this project." }),
+  tagline: z
+    .string()
+    .min(1, { message: "Please add a meaningful tagline for this project." }),
   category: z.string().optional(),
   builtWith: z.string().optional(),
   collaborators: z.number().optional(),
@@ -121,6 +122,7 @@ const AutofillWithAi = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    form.reset();
   }
 
   const handleAutofill = () => {
@@ -167,9 +169,8 @@ const AutofillWithAi = () => {
                 Autofill details with AI
               </h2>
               <p className="text-gray4 mb-4 text-sm">
-
-                Simply input your project URL, and we&apos;ll automagically fill in
-                the details for you!
+                Simply input your project URL, and we&apos;ll automagically fill
+                in the details for you!
               </p>
               <div className="flex gap-3">
                 <FormField
@@ -301,7 +302,7 @@ const AutofillWithAi = () => {
             <div className="flex justify-end">
               <Button
                 type="submit"
-                className="text-background bg-foreground rounded-2xl"
+                className="text-background bg-foreground rounded-2xl cursor-pointer"
               >
                 Save Project
               </Button>
@@ -354,7 +355,7 @@ const AutofillWithAi = () => {
                   return (
                     <div key={item.id} className="flex items-center gap-3">
                       <div
-                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${ 
+                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                           isCompleted
                             ? "bg-success border-success"
                             : "border-foreground"
@@ -375,7 +376,7 @@ const AutofillWithAi = () => {
                         )}
                       </div>
                       <span
-                        className={`text-sm ${ 
+                        className={`text-sm ${
                           isCompleted ? "text-gray4" : "text-foreground"
                         }`}
                       >

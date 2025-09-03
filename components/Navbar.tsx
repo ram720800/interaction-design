@@ -72,21 +72,26 @@ const Navbar = () => {
                   layoutId="active-pill"
                   className="absolute inset-0 app-shadow"
                   style={{ borderRadius: 9999 }}
-                >
-                </motion.div>
+                ></motion.div>
               )}
               <span className="relative z-20">{route.title}</span>
             </Link>
           );
         })}
       </div>
-      <Image
-        src="/me.jpeg"
-        alt="ram"
-        width={32}
-        height={32}
-        className="rounded-full"
-      />
+      <Link
+        href="https://x.com/Ram720800"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/me.jpeg"
+          alt="ram"
+          width={32}
+          height={32}
+          className="rounded-full"
+        />
+      </Link>
     </div>
   );
 };
